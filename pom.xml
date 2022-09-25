@@ -21,7 +21,8 @@
     <properties>
         <java.version>11</java.version>
         <springboot.version>2.7.4</springboot.version>
-        <twitter4j.version>4.0</twitter4j.version>
+        <twitter4j.version>4.0.7</twitter4j.version>
+        <java.version>11</java.version>
     </properties>
 
     <dependencyManagement>
@@ -45,12 +46,35 @@
                 <version>${springboot.version}</version>
                 <scope>test</scope>
             </dependency>
+
             <dependency>
                 <groupId>org.twitter4j</groupId>
-                <artifactId>twitter4j-core</artifactId>
+                <artifactId>twitter4j-stream</artifactId>
                 <version>${twitter4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <release>${java.version}</release>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${springboot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>

@@ -1,0 +1,10 @@
+twitter-consumer:
+  mock-enabled: true
+  mock-sleep-duration: 2000
+  mock-minimum-length: 1
+  mock-maximum-length: 15
+  topics:
+    - java
+    - springboot
+    - maven
+    - kafka

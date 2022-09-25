@@ -6,6 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TwitterConsumerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(TwitterConsumerApplication.class);
+        SpringApplication.run(TwitterConsumerApplication.class, args);
     }
 }
