@@ -1,6 +1,6 @@
 package com.swave.twitter.consumer.service.impl;
 
-import com.swave.twitter.consumer.config.TwitterConsumerProps;
+import com.swave.twitter.config.TwitterConsumerProps;
 import com.swave.twitter.consumer.exceptions.TwitterListenerException;
 import com.swave.twitter.consumer.service.StreamRunner;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +25,9 @@ import java.util.concurrent.ThreadLocalRandom;
 @Slf4j
 @ConditionalOnProperty(name = "twitter-consumer.mock-enabled", havingValue = "true")
 public class MockTwitterStreamRunner implements StreamRunner {
+    /*
+      Generates Mock Tweets for easy testing
+     */
     private final TwitterConsumerProps twitterConsumerProps;
     private final TwitterStatusListener twitterStatusListener;
 

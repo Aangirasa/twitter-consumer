@@ -13,6 +13,7 @@
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
+        <app.config.version>0.0.1-SNAPSHOT</app.config.version>
     </properties>
 
     <dependencies>
@@ -31,6 +32,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.swave</groupId>
+            <artifactId>app-config-data</artifactId>
+            <version>${app.config.version}</version>
         </dependency>
 
 

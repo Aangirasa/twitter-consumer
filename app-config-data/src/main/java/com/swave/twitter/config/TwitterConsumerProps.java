@@ -1,4 +1,4 @@
-package com.swave.twitter.consumer.config;
+package com.swave.twitter.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
