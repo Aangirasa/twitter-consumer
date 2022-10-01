@@ -15,7 +15,7 @@ public class RetryTemplateConfig {
     private final RetryTemplateProps retryTemplateProps;
 
     @Bean
-    public RetryTemplate retryTemplate(){
+    public RetryTemplate retryTemplate() {
         RetryTemplate template = new RetryTemplate();
 
         ExponentialBackOffPolicy exponentialBackOffPolicy = new ExponentialBackOffPolicy();
