@@ -8,7 +8,6 @@ import java.util.List;
 
 @ConfigurationProperties("twitter-consumer")
 @Data
-@Component
 public class TwitterConsumerProps {
     private boolean mockEnabled;
     private List<String> topics;

@@ -29,6 +29,7 @@
         <spring.retry.template.version>1.2.5.RELEASE</spring.retry.template.version>
         <apache.avro.version>1.11.1</apache.avro.version>
         <spring.kafka.version>2.6.2</spring.kafka.version>
+        <kafka-avro-serializer.version>5.5.1</kafka-avro-serializer.version>
     </properties>
 
     <dependencyManagement>
@@ -75,8 +76,39 @@
                 <artifactId>avro</artifactId>
                 <version>${apache.avro.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>io.confluent</groupId>
+                <artifactId>kafka-avro-serializer</artifactId>
+                <version>${kafka-avro-serializer.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-annotations</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <repositories>
+        <repository>
+            <id>confluent</id>
+            <url>https://packages.confluent.io/maven/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
