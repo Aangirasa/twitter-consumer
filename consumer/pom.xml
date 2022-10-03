@@ -45,6 +45,18 @@
             <groupId>org.twitter4j</groupId>
             <artifactId>twitter4j-stream</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.swave</groupId>
+            <artifactId>kafka-admin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.swave</groupId>
+            <artifactId>kafka-producer</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 
