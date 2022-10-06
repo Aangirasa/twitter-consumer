@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: kafka-to-elastic-service
+  profiles:
+    active: dev
+  config:
+    enabled: true
+    name: kafka-to-elastic-service
+    import: configserver:http://localhost:8088
+
+  kafka:
+    consumer:
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties.spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer

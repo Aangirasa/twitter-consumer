@@ -13,7 +13,7 @@ public class KafkaProducerProps {
     private String compressionType;
     private String ack;
     private int batchSize;
-    private int batchSizeBoostsize;
+    private int batchSizeBoostFactor;
     private int lingerMs;
     private int requestTimeoutMs;
     private int retryCount;
