@@ -37,6 +37,7 @@
         <spring.cloud.config-server.version>3.1.1</spring.cloud.config-server.version>
         <spring.cloud.version>2021.0.1</spring.cloud.version>
         <elasticsearch.dependency.version>7.9.1</elasticsearch.dependency.version>
+        <springboot.openapi.version>1.6.12</springboot.openapi.version>
     </properties>
 
     <dependencyManagement>
@@ -57,6 +58,12 @@
                 <artifactId>lombok</artifactId>
                 <optional>true</optional>
                 <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${springboot.openapi.version}</version>
             </dependency>
 
             <dependency>

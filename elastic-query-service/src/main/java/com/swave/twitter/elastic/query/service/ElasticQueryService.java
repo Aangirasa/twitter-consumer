@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 @ComponentScan("com.swave.twitter")
+
 @SpringBootApplication(exclude = {ReactiveElasticsearchRestClientAutoConfiguration.class})
 public class ElasticQueryService {
     public static void main(String[] args) {
