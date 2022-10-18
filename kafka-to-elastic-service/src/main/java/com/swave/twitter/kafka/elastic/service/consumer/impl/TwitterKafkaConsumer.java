@@ -2,8 +2,11 @@ package com.swave.twitter.kafka.elastic.service.consumer.impl;
 
 import com.swave.twitter.config.KafkaConsumerProps;
 import com.swave.twitter.config.KafkaProps;
+import com.swave.twitter.elastic.config.model.index.impl.TwitterIndexModel;
+import com.swave.twitter.elastic.index.client.service.ElasticIndexClient;
 import com.swave.twitter.kafka.admin.client.KafkaAdminClient;
 import com.swave.twitter.kafka.elastic.service.consumer.KafkaConsumer;
+import com.swave.twitter.kafka.elastic.service.transformer.TwitterIndexTransformer;
 import com.swave.twitter.kafka.model.TwitterAvroModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,12 +34,17 @@ public class TwitterKafkaConsumer implements KafkaConsumer<Long, TwitterAvroMode
 
     private final KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry;
 
-    public TwitterKafkaConsumer(KafkaProps kafkaProps, KafkaConsumerProps kafkaConsumerProps, KafkaAdminClient adminClient, KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry) {
+    private final ElasticIndexClient<TwitterIndexModel> elasticIndexClient;
+
+    private final TwitterIndexTransformer twitterIndexTransformer;
+
+    public TwitterKafkaConsumer(KafkaProps kafkaProps, KafkaConsumerProps kafkaConsumerProps, KafkaAdminClient adminClient, KafkaListenerEndpointRegistry kafkaListenerEndpointRegistry, ElasticIndexClient elasticIndexClient, TwitterIndexTransformer twitterIndexTransformer) {
         this.kafkaProps = kafkaProps;
         this.kafkaConsumerProps = kafkaConsumerProps;
         this.adminClient = adminClient;
         this.kafkaListenerEndpointRegistry = kafkaListenerEndpointRegistry;
-        System.out.println(kafkaListenerEndpointRegistry.getAllListenerContainers().toString());
+        this.elasticIndexClient = elasticIndexClient;
+        this.twitterIndexTransformer = twitterIndexTransformer;
     }
 
     @EventListener
@@ -57,5 +65,7 @@ public class TwitterKafkaConsumer implements KafkaConsumer<Long, TwitterAvroMode
                 , messages
                 , keys
                 , offsets);
+        List ids = elasticIndexClient.save(twitterIndexTransformer.convertToIndexList(messages));
+        log.info("Kafka message saved to elastic index {}", ids);
     }
 }

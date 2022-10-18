@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>kafka-to-elastic-service</artifactId>
+    <artifactId>elastic-query-service</artifactId>
 
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
@@ -17,21 +17,10 @@
     </properties>
 
     <dependencies>
+
         <dependency>
             <groupId>com.swave</groupId>
             <artifactId>app-config-data</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.swave</groupId>
-            <artifactId>elastic-model</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.swave</groupId>
-            <artifactId>elastic-index-client</artifactId>
             <version>${project.version}</version>
         </dependency>
 
@@ -43,32 +32,9 @@
 
         <dependency>
             <groupId>com.swave</groupId>
-            <artifactId>kafka-model</artifactId>
+            <artifactId>elastic-query-client</artifactId>
             <version>${project.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.swave</groupId>
-            <artifactId>kafka-consumer</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>io.confluent</groupId>
-            <artifactId>kafka-avro-serializer</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.swave</groupId>
-            <artifactId>kafka-admin</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -81,8 +47,18 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
     </dependencies>
 
